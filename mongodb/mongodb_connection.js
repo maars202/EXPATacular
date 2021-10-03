@@ -32,8 +32,8 @@ const {MongoClient} = require('mongodb')
 async function main(){
 
     // edit accordingly:
-    password = "your_password"
-    database_name = "database_name"
+    password = "password_"
+    database_name = "myFirstDatabase"
     
 
     const uri = `mongodb+srv://dbUser:${password}@cluster0.buuve.mongodb.net/${database_name}?retryWrites=true&w=majority`
