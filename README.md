@@ -3,6 +3,7 @@ WAD2_project
 
 
 Mongodb 
+--- inspired by https://www.smashingmagazine.com/2021/01/nodejs-api-ethereum-blockchain/ 
 in commandline, go into mongodb folder
 install packages:
 "npm install"
