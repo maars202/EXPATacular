@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--Meta “viewport” is used to make the web page responsive to the browser/device width-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Bootstrap 101 Template</title>
+
+
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="./css/styles.css">
+
+        <!-- Axios Library  -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
+
+    
+    </head>
+
+
+
+
+    <body>
+
+        <div class="container-fluid">
+            <!-- NAVBAR -->
+            <div class="row" style = "background-color:#F2F2F2;">
+                <nav class="ps-sm-0 ps-md-5 navbar navbar-expand-md navbar-light pt-md-4 pt-sm-5" style = "background-color:#F2F2F2;">
+                    <div class="container-fluid ps-3">
+                        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                        <button class="navbar-toggler m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Food & Places</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./trivia.html">Trivia!</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="./tools.html">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="#">Currency Converter</a></li>
+                                <li><a class="dropdown-item" href="#">Emergency Contacts</a></li>
+                                <li><a class="dropdown-item" href="#">Translator</a></li>
+                                <li><a class="dropdown-item" href="#">Weather Forecast</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+            <!-- NAVBAR -->
+
+            <div class="row justify-content-center">
+                <p class = "my-5 fs-1 h1 text-center">Tools</p>
+            </div>
+
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-9">
+                    <div class = "toolsBackground" style = "background-image: url(./tools_images/forex.jpeg)">
+                        <div class="toolTitle">
+                            <div class="row m-4">
+                                <p class = "text-center h3 mb-1 mt-4">Currency Converter</p>
+
+                                <p class = "fs-6 fw-lighter mt-5">Convert the price of any item in your local currency by converting the price of that item to the currency of your choice!</p>
+
+                                <a class="btn btn-primary w-50 ms-2 mt-3" href="#" role="button">Currency Converter</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>  
+
+
+            <div class="row justify-content-center mt-4 mb-5">
+                <div class="col-9">
+                    <div class = "toolsBackground" style = "background-image: url(./tools_images/emergency.jpg)">
+                        <div class="toolTitle">
+                            <div class="row m-4">
+                                <p class = "text-center h3 mb-1 mt-5">Emergency Contacts</p>
+
+                                <p class = "fs-6 fw-lighter mt-5">It's important to have the contacts of important agencies at hand. You never know when you might need their assistance!</p>
+
+                                <a class="btn btn-success w-50 ms-2 mt-3" href="#" role="button">Emergency Contacts</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>  
+
+            <div class="row justify-content-center mt-4 mb-5">
+                <div class="col-9">
+                    <div class = "toolsBackground" style = "background-image: url(./tools_images/multiethnic.jpeg)">
+                        <div class="toolTitle">
+                            <div class="row m-4">
+                                <p class = "text-center h3 mb-1 mt-5">Translator</p>
+
+                                <p class = "fs-6 fw-lighter mt-5">Having trouble understanding our multiple languages? Use our translator for easier communication amongst multiple languages!</p>
+
+                                <a class="btn btn-primary w-50 ms-2 mt-3" href="#" role="button">Translator</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div> 
+
+
+
+            <div class="row justify-content-center mt-4 mb-5">
+                <div class="col-9">
+                    <div class = "toolsBackground" style = "background-image: url(./tools_images/weather.jpg)">
+                        <div class="toolTitle">
+                            <div class="row m-4">
+                                <p class = "text-center h3 mb-1 mt-5">Weather Forecast</p>
+
+                                <p class = "fs-6 fw-lighter mt-5">Singapore's weather can be rather erratic at times. Stay on top of the weather by constantly checking in with our weather function!</p>
+
+                                <a class="btn btn-primary w-50 ms-2 mt-3" href="#" role="button">Weather Forecast</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div> 
+
+
+            <div class="row justify-content-center mt-4 mb-5">
+                <div class="col-9">
+                    <div class = "toolsBackground" style = "background-image: url(./tools_images/covid.jpg)">
+                        <div class="toolTitle">
+                            <div class="row m-4">
+                                <p class = "text-center h3 mb-1 mt-5">Covid Status</p>
+
+                                <p class = "fs-6 fw-lighter mt-5">Stay safe from Covid 19 ...</p>
+
+                                <a class="btn btn-primary w-50 ms-2 mt-3" href="#" role="button">Covid Status</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div> 
+
+
+
+        </div>
+        
+        
+
+        <!-- Bootstrap JS CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        
+    </body>
+</html>

@@ -1,12 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tourist</title>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--Meta “viewport” is used to make the web page responsive to the browser/device width-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Home</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="css/styles.css"/>
+
+        <!-- Axios Library  -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
-</body>
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+
+            <!-- NAVBAR -->
+            <div class="row" style = "background-color:#F2F2F2;">
+                <nav class="ps-sm-0 ps-md-5 navbar navbar-expand-md navbar-light pt-md-4 pt-sm-5 fixed-top" style = "background-color:#F2F2F2;">
+                    <div class="container-fluid ps-3">
+                        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                        <button class="navbar-toggler m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Food & Places</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./trivia.html">Trivia!</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="./tools.html">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="#">Currency Converter</a></li>
+                                <li><a class="dropdown-item" href="#">Emergency Contacts</a></li>
+                                <li><a class="dropdown-item" href="#">Translator</a></li>
+                                <li><a class="dropdown-item" href="#">Weather Forecast</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+            <!-- NAVBAR -->
+
+
+            <!-- JUMBOTRON -->
+
+            <div class="row singaporeBackdrop scrollEffect p-0">
+                <div class="container-fluid" style = "padding-top: 8%; padding-bottom: 8%;">
+                    <div class="row justify-content-center" style = "padding-top: 15%; padding-bottom: 15%;">
+                        <h1 class= "display-2 text-white text-center mb-0" style = "width: 800px; font-weight: 500; background-color: rgba(0, 0, 0, 0.322)">Welcome to Singapore</h1>
+                        <p class="lead text-white text-center" style = "width: 400px; background-color: rgba(0, 0, 0, 0.322);" >City of the Future</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Failed First Attempt -->
+
+            <!-- <div class="row-fluid justify-content-center">
+                    <img src="./index_images/skyline.gif" class = "img-fluid m-0 w-100 " alt="" style = "position: absolute; left:0;z-index:1">
+                    <div class="row justify-content-center w-100" style = "position: absolute; z-index:2; margin-top: 17%; margin-bottom: 17%">
+                        <h1 class="display-2 text-white text-center" style = "font-weight: 500">Welcome to Singapore</h1>
+                        <p class="lead text-white text-center">City of the Future</p>
+                    </div>      
+            </div>  -->
+
+            <!-- JUMBOTRON -->
+
+
+
+            <!-- INTRO TEXT -->
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-8">
+                    <p class = "text-center text-secondary">Welcome to Singapore! we have laid out some tools and information that will better your stay here! <br> Feel free to explore!</p>
+                </div>
+            </div>
+
+            <!-- INTRO TEXT -->
+
+            <!-- CARDS -->
+
+            <div class="row justify-content-center mb-5 mt-1">
+                <div class="col-md-4 mt-3 mb-4" >
+                    <div class="row justify-content-center">
+                        <div class="card border-0" style = "height: 260px; width: 314px;">
+                            <div class="card-body" style = "background-image: url(./index_images/community.png); background-size: cover;">
+                                <div class = "text-center">
+                                    <a href=""><h6 class="card-subtitle center text-center bg-white text-dark p-3">Community</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mt-3">
+                    <div class="row justify-content-center">
+                        <div class="card border-0" style = "height: 260px; width: 314px;">
+                            <div class="card-body" style = "background-image: url(./index_images/singapore_food.jpg); background-size: cover;">
+                                <div class = "text-center">
+                                    <a href=""><h6 class="card-subtitle center text-center bg-white text-dark p-3" >Food & Places</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mt-3">
+
+                    <div class="row justify-content-center">
+                        <div class="card border-0" style = "height: 260px; width: 314px;">
+                            <div class="card-body" style = "background-image: url(./index_images/tools.jpg); background-size: cover;">
+                                <div class = "text-center">
+                                    <a href="./tools.html"><h6 class=" center card-subtitle text-center bg-white text-dark p-3" >Useful Tools</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>  
+
+            </div>
+
+            <!-- CARDS -->
+
+
+            <!-- FUNFACTS -->
+            <div class="row justify-content-center mt-5 mb-5">
+                <div class="col-md-6 py-5">
+                    <p class = "text-center h4">Fun Facts about Singapore!</p>
+                    <div id="carouselExampleCaptions" class="position-relative center carousel slide" data-bs-ride="carousel" style= "width: 300px; height: 310px;">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="./index_images/islands_overlay.jpg" class="d-block w-100" style= "width: 300px; height: 300px;" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Made up of 21 Islands</h5>
+                                <p>Singapore’s land area includes as many as 64 offshore islands that surround the main island. </p>
+                            </div>
+                            </div>
+                            <div class="carousel-item">
+                            <img src="./index_images/night_safari_overlay.jpg" class="d-block w-100" style= "width: 300px; height: 300px;" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>World's First Night Zoo</h5>
+                                <p>Singapore’s Night Safari provides a nocturnal experience like no other</p>
+                            </div>
+                            </div>
+                            <div class="carousel-item">
+                            <img src="./index_images/tissue_overlay.jpg" class="d-block w-100" style= "width: 300px; height: 300px;" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Booking a table with tissue</h5>
+                                <p>locals use tissue packs to make "table reservations" at hawker centres</p>
+                            </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-6 p-5"  style = "background-color: #DDDEE0;">
+                    <div class="row bg-white m-1" style ="width: 100%;">
+                        <p class = "h4 pt-4">Welcome to your new home!</p>
+                        <p class = "lead mb-0">Singapore is home to over <span class = "fw-bold">2.16 Million</span> Immigrants</p>
+                        <p class = "lead">That's over <span class = "fw-bold">40%</span> of our total population</p>
+                        <p style = "font-size: 14px;">Throughout its history as a port city, Singapore has been a melting pot of cultures and nationalities. Currently, as one of Asia’s most important economies, it <span class = "fw-bold">attracts people from all over the world and of different socioeconomic backgrounds</span> to seek better opportunities. The immigrant population is largely of Asian origin, with neighboring Malaysians making up the majority.</p>
+                        <p class = "pb-4" style = "font-size: 14px;">Lacking in natural resources, Singapore’s government has long stressed that its most important resource is its people. However, with declining birth rates and low population growth, <span class = "fw-bold">the country increasingly relies on immigrants</span> to help shoulder the economic burden. </p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- FUNFACTS -->
+
+
+
+
+        </div>
+        
+
+
+        
+
+        <!-- Bootstrap JS CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        
+    </body>
 </html>

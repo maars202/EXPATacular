@@ -1,0 +1,139 @@
+
+
+.nav-link{
+    color: #757575;
+    margin-right: 40px;
+}
+
+/* HOME */
+
+.center{
+    position: absolute;
+    top: 50%; 
+    left:50%; 
+    transform: translate(-50%, -50%);
+}
+
+.singaporeBackdrop{
+    background-image: url("../index_images/skyline4.gif");
+    background-size: cover;
+}
+
+.scrollEffect{
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;;
+}
+
+/* HOME */
+
+
+
+/* TOOLS */
+
+.toolsBackground{
+    width: 535px;
+    height: 425px;
+    object-fit: cover;
+}
+
+.toolTitle{
+    position: relative;
+    top: 70px;
+    left: 400px;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+}
+
+/* TOOLS */
+
+
+/* TRIVIA */
+
+:root{
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
+
+#triviaBody{
+    --hue: var(--hue-neutral);
+    background-color: hsl(var(--hue), 100%, 20%)
+}
+
+#triviaBody.correct{
+    --hue: var(--hue-correct);
+}
+
+#triviaBody.wrong{
+    --hue: var(--hue-wrong);
+}
+
+.triviaContainer{
+    width: 500px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow:0 0 10px 2px;
+}
+
+.btn-grid{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.triviaBtn{
+    --hue: var(--hue-neutral);
+    border: 1px solid hsl(var(--hue), 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+}
+
+.triviaBtn:hover{
+    border-color: black;
+
+}
+
+.triviaBtn.correct{
+    --hue: var(--hue-correct);
+    color: black;
+}
+
+.triviaBtn.wrong{
+    --hue: var(--hue-wrong);
+}
+
+.startBtn, .nextBtn{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display:none;
+}
+
+/* TRIVIA */
+
+
+
+
+
+
+
