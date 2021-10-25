@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+        <style>
+            .back-button {
+                color: grey;
+            }
+
+            
+        </style>
+        <title>Emergency Contacts</title>
+</head>
+
+
+<body>
+    <div class="container-fluid">
+        <!-- navigation bar  -->
+        <div class="row" style = "background-color:#F2F2F2;">
+            <nav class="ps-sm-0 ps-md-5 navbar navbar-expand-md navbar-light pt-md-4 pt-sm-5 fixed-top" style = "background-color:#F2F2F2;">
+                <div class="container-fluid ps-3">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Food & Places</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./trivia.html">Trivia!</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Tools
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="./tools.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#">Currency Converter</a></li>
+                            <li><a class="dropdown-item" href="#">Emergency Contacts</a></li>
+                            <li><a class="dropdown-item" href="#">Translator</a></li>
+                            <li><a class="dropdown-item" href="#">Weather Forecast</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+        <div class="row justify-content-center">
+            <img src="header_img.png" class="img-fluid px-0" alt="" >
+
+            <div class="col-5 bg-white mt-5 mb-3 text-center">
+                <h3>Emergency Contacts</h3>
+                <p>Important contacts to know in Singapore in case of emergency. Be advised that you should not misuse these telephone numbers. You many warrant a penalty if you misuse them.</p>
+                
+            </div>
+            
+        </div>
+
+        <div class="row mb-3 justify-content-center">
+            <div class="col-2 text-center">
+                <a href="#" class="back-button">Back to Tools</a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <table class="table table-striped text-center" >
+                    <thead>
+                    <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Personnel</th>
+                            <th scope="col">Hotline Number</th>
+                            <th scope="col">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" >1</th>
+                        <td>EMS, Ambulance and Fire Rescue</td>
+                        <td>995</td>
+                        <td>The SCDF provides round-the-clock emergency medical service (EMS) as well as emergency fire response and rescue.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" >2</th>
+                        <td>Emergency Police</td>
+                        <td>999</td>
+                        <td>When seeking emergency assistance from the police, provide a clear account, type of emergency being reported, the caller’s name, contact details and the location of the emergency.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" >3</th>
+                        <td>Non-Emergency Ambulance (Private)</td>
+                        <td>1777</td>
+                        <td>Dialing 995 for a non-emergency situation may be fined under Singapore law.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" >4</th>
+                        <td>Non-Emergency Police Hotline</td>
+                        <td>1 800 255 0000</td>
+                        <td>For non-emergency cases requiring police assistance, caller can also contact the Neighbourhood Police Center.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" >5</th>
+                        <td>Traffic Police</td>
+                        <td>6547 0000</td>
+                        <td>To enquire about ongoing case or bail related matters</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        
+        <div class="row my-5">
+            <div class="col-2">
+                <a class="back-button" href="#">Previous</a>
+            </div>
+            <div class="col-10 text-end">
+                <a class="back-button" href="#">Next</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>    
+</body>
+</html>
