@@ -1,2 +1,2 @@
 # tourist_app
-WAD2_project
+WADII_project
