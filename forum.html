@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Forum</title>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Axios library -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel='stylesheet' href='forum.css'>
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+
+    <!-- Add code here -->
+    <div class='container-fluid'>
+        <!--Top navigation bar-->
+        <div class="row" style="background-color:#F2F2F2;">
+            <nav class="ps-sm-0 ps-md-5 navbar navbar-expand-md navbar-light pt-md-4 pt-sm-5"
+                style="background-color:#F2F2F2;">
+                <div class="container-fluid ps-3">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler m-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Food & Places</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./trivia.html">Trivia!</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Tools
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="./tools.html">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="#">Currency Converter</a></li>
+                                    <li><a class="dropdown-item" href="#">Emergency Contacts</a></li>
+                                    <li><a class="dropdown-item" href="#">Translator</a></li>
+                                    <li><a class="dropdown-item" href="#">Weather Forecast</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!--Forum bar-->
+    <div class='container-fluid'>
+        <div class='row' style='background-color: rgb(64, 78, 64);height: 60px ; 
+    line-height: 60px; '>
+            <div class='col' style='color: white; font-weight:100'>Forum</div>
+            <div class='col' style="left: 800px;  position: absolute">
+
+            </div>
+        </div>
+
+        <div class='row' style="background-image: url('Jewel.webp')">
+            <div style='text-align: center; margin-top: 70px ; margin-bottom: 80px;'>
+                <h1>Forum</h1>
+                <p style='font-size: 20px;'>Welcome! Have a look around and join the discussions.</p>
+            </div>
+        </div>
+
+        <div class='row' style='display: flex; margin-top: 30px;'>
+            <a href='../Posts/createPost.html'>
+                <button class='btn btn-primary'>Create New Post</button>
+            </a>
+        </div>
+    </div>
+
+    <div id='app' class='container'>
+
+        <!--Discussion in columns -->
+        <div class="card">
+            <div class="card-body">
+                <div class='main'>
+                    <div class='sub-main'>
+                        <div class='body-1'>
+                            <div class='inner-body-1'>
+                                <a href='#'>
+                                    General Discussion
+                                </a>
+                                <span class='sub-lines'>Share stories,ideas,pictures and more!</span>
+                            </div>
+                        </div>
+
+                        <div class='body-2'>
+                            <div class='inner-body-2'>
+                                <div class='inner-inner-body-2'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-chat-left" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    </svg>
+                                    <span class="sub-lines">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='following'>
+                        <a href='#' class='sub-lines'>
+                            Following
+                        </a>
+                        <div class='end'>
+                            <button class='button-load'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                    <path
+                                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class='main'>
+                    <div class='sub-main'>
+                        <div class='body-1'>
+                            <div class='inner-body-1'>
+                                <a href='#'>
+                                    Questions & Answers
+                                </a>
+                                <span class='sub-lines'>Get answers and share knowledge</span>
+                            </div>
+                        </div>
+
+                        <div class='body-2'>
+                            <div class='inner-body-2'>
+
+                                <div class='inner-inner-body-2'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-chat-left" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    </svg>
+                                    <span class="sub-lines">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='following'>
+                        <a href='#' class='sub-lines'>
+                            Following
+                        </a>
+                        <div class='end'>
+                            <button class='button-load'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                    <path
+                                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Discussion in 1 row-->
+
+        <!-- <div style='width: 100%;'>
+                <div class='row' style='margin-top:40px; margin-bottom: 20px;'>
+                    <h4>Latest Posts:</h4>
+                </div>
+                <ul class='post-ul'>
+                    <li style='overflow: hidden;' v-for='(post,index) of latestPosts'>
+                        <div class='post'>
+                            hi
+                        </div>
+                    </li>
+                </ul>
+            </div> -->
+        <div class='row' style='margin-top:40px; margin-bottom: 20px;'>
+            <h4>Latest Posts:</h4>
+        </div>
+
+
+        <div>
+            <posts></posts>
+        </div>
+
+
+        <footer>
+        </footer>
+
+    </div>
+
+    <script src='forum.js'></script>
+
+    <!-- Bundled Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- <div class="card">
+            <div class="card-body">
+                <a href='#'>
+                    Questions & Answers
+                </a>
+                <p class='sub-lines'>Get answers and share knowledge.</p>
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <a href='#'>
+                Staff Only
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
+                </svg>
+            </a>
+            <p class='sub-lines'>Private category for admins and moderators.</p>
+        </div>
+    </div>
+
+
+
+    -->
+
+
+
+<!-- 
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16" style="color: white;">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+                <input type='text' placeholder="Search"
+                    style='height: 40px; background-color:transparent ; border: none; border-bottom: solid thin white; '>
+                <a href='#'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-gear" viewBox="0 0 16 16" style="margin-left: 10px ;color: white;">
+                        <path
+                            d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                        <path
+                            d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                    </svg>
+                </a>
+-->
+
+
+<!--EYE-->
+<!-- <div class='inner-inner-body-2'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-eye" viewBox="0 0 16 16">
+        <path
+            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+        <path
+            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+    </svg>
+    <span class="sub-lines">0</span>
+</div> -->
