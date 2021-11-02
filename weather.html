@@ -64,22 +64,24 @@
 </head>
 <body>
 
-    <style>
+     <style>
         #mapid { 
-            height: 380px;
-            width: 650px; 
+            height: 480px;
+            width: 1025px; 
        }
     </style>
 
 
  <!--  background image -->  
 <div class="bg-image justify-content-center align-items-center img-responsive  " style="background-image: url('./covidweatherresources/backgroundimage.jpg');background-size: cover;">
-    <div class="container-fluid" style = "padding-top: 15%; padding-bottom: 10%;">
-    <div class="mask" style="background-color: rgba(157, 157, 157, 0.6);">
-        
+    <div class="container-fluid " style = "padding-top: 10%; padding-bottom: 10%;">
+  
+     <h1 class="text-center">Weather</h1>
+     <p class="text-center pb-4">Check the weather before heading out!</p>   
  
  <!--  Grid -->  
-    <div class="row justify-content-center"  style = "padding-top: 5%; padding-bottom: 2%;">
+ <div class="bg-white opacity-75 m-5  justify-content-center">
+    <div class="row   "  style = "padding-top: 5%; padding-bottom: 2%;">
         <div class="col-1"></div>
         <div class="col-10">
         <table class="table table-hover">
@@ -102,17 +104,15 @@
         </div>
         <div class="col-1"></div>
       </div>
-    
+    </div>
     <div class="row justify-content-center"  style = "padding-bottom: 5%;">
     <div id="mapid"></div>
     </div>
-    </div>
     
- 
-</div>
+    
+</div> 
 </div>
 
-</div>
 
 <!-- Rainfall map/ location/temp/humid/windspeed table -->
     <script>
@@ -160,7 +160,7 @@
     var mymap = L.map('mapid').setView([1.3521, 103.8198], 11);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic29vbmhhbyIsImEiOiJja3VqdnNtMngwbWExMm9wOHN0czJ0aGhlIn0.c7Tlc8lswiBqtTd4CLNEHw', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
+    maxZoom: 17,
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
