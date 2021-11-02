@@ -65,242 +65,254 @@
         <!-- NAVBAR -->
     </div>
 
-     <!--  background image -->  
-<div class="bg-image justify-content-center align-items-center img-responsive " style="background-image: url('./covidweatherresources/backgroundimage2.jpg');background-size: cover;">
-<div class="container-fluid" style = "padding-top: 15%; padding-bottom: 10%;">
-<div class="mask" style="background-color: rgba(172, 172, 172, 0.6);">
-    <div class="row ">
-        <div class="col m-3" id="date"></div>
-    </div>
-    <div class="row m-3">
-        <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Total Cases</div>
-        <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Total Deaths</div>
-        <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Fatality Rate</div>
-    </div>
-    <div class="row ">
-        <div class="col-4" >
+    <!--  background image -->  
+    <div class="bg-image justify-content-center align-items-center img-responsive " style="background-image: url('./covidweatherresources/backgroundimage2.jpg');background-size: cover;">
+        <div class="container-fluid" style = "padding-top: 15%; padding-bottom: 10%;">
+        <h1 class="text-center">Covid Statistics </h1>
             <div class="row">
-                <div class="col-7 d-flex justify-content-end display-6" id="cases1"></div>
-                <div class="col-5 justify-content-start" id="cases2"><img src="./covidweatherresources/redup.png" class="img-fluid m-2" style="width:20%; height: auto;"></div>
-                
+                <div class="col m-3 text-center" id="date"></div>
             </div>
-        </div>
-        <div class="col-4 text-center">
-            <div class="row">
-                <div class="col-7 d-flex justify-content-end display-6" id="deaths1"></div>
-                <div class="col-5 justify-content-start" id="deaths2"><img src="./covidweatherresources/redup.png" class="img-fluid m-2" style="width:20%; height: auto;"></div>
+            <div class="row m-3">
+                <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Total Cases</div>
+                <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Total Deaths</div>
+                <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Fatality Rate</div>
             </div>
-        </div>
-        <div class="col-4 text-center display-6" id="fatal"></div>
-    </div>
-    <div class="row p-5 d-flex justify-content-center">
-        <svg></svg>
-    </div>
-
-</div>
-</div>
-</div>
-    
-
-<script>
-
-axios.get("https://covid-api.com/api/reports/total?iso=SGP",{
-headers: {"Access-Control-Allow-Origin": "*"}})
-.then(response =>  {
-        // console.log(response.data.data)
-        today = new Date().toDateString()
-        document.getElementById("date").innerText = "Covid 19 numbers as of " + today 
-
-        totalcases = response.data.data.confirmed
-        dailycases = response.data.data.confirmed_diff
-        document.getElementById("cases1").innerText = totalcases 
-        node1=document.createTextNode(dailycases)
-        document.getElementById("cases2").appendChild(node1)
-
-        totaldeaths = response.data.data.deaths
-        dailydeaths = response.data.data.deaths_diff
-        document.getElementById("deaths1").innerText = totaldeaths 
-        node2=document.createTextNode(dailydeaths)
-        document.getElementById("deaths2").appendChild(node2)
-
-        fatality = response.data.data.fatality_rate
-        fatality = fatality*100
-        document.getElementById("fatal").innerText = fatality + "%"
-
-    })
-            .catch(error => {
-        console.log(error.message)   
-             });  
-
-var date= new Date();
-today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-datetodayurl  = today.toLocaleString()
-
-one = date.setDate(date.getDate() - 1);
-dateone = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-dateoneurl  = dateone.toLocaleString()
-
-two = date.setDate(date.getDate() - 1);
-datetwo = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-datetwourl  = datetwo.toLocaleString()
-
-three = date.setDate(date.getDate() - 1);
-datethree = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-datethreeurl  = datethree.toLocaleString()
-
-four = date.setDate(date.getDate() - 1);
-datefour = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-datefoururl  = datefour.toLocaleString()
-
-five = date.setDate(date.getDate() -1);
-datefive = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-datefiveurl  = datefive.toLocaleString()
-
-six = date.setDate(date.getDate() -1);
-datesix = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-datesixurl  = datesix.toLocaleString()
-
-seven = date.setDate(date.getDate() -1);
-dateseven = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-datesevenurl  = dateseven.toLocaleString()
-
-let data =[]
-const requestOne = axios.get("https://covid-api.com/api/reports/total?date="+dateoneurl +"&iso=SGP");
-const requestTwo = axios.get("https://covid-api.com/api/reports/total?date="+datetwourl +"&iso=SGP");
-const requestThree = axios.get("https://covid-api.com/api/reports/total?date="+datethreeurl +"&iso=SGP");
-const requestFour = axios.get("https://covid-api.com/api/reports/total?date="+datefoururl +"&iso=SGP");
-const requestFive = axios.get("https://covid-api.com/api/reports/total?date="+datefiveurl +"&iso=SGP");
-const requestSix = axios.get("https://covid-api.com/api/reports/total?date="+datesixurl +"&iso=SGP");
-const requestSeven = axios.get("https://covid-api.com/api/reports/total?date="+datesevenurl +"&iso=SGP");
-
-axios.all([requestOne, requestTwo, requestThree, requestFour, requestFive, requestSix, requestSeven])
-.then(axios.spread((...response) => {
-  data.push({"date":response[0].data.data.date,"deaths": parseInt(response[0].data.data.deaths_diff) })
-  data.push({"date":response[1].data.data.date,"deaths": parseInt(response[1].data.data.deaths_diff) })
-  data.push({"date":response[2].data.data.date,"deaths": parseInt(response[2].data.data.deaths_diff) })
-  data.push({"date":response[3].data.data.date,"deaths": parseInt(response[3].data.data.deaths_diff) })
-  data.push({"date":response[4].data.data.date,"deaths": parseInt(response[4].data.data.deaths_diff) })
-  data.push({"date":response[5].data.data.date,"deaths": parseInt(response[5].data.data.deaths_diff) })
-  data.push({"date":response[6].data.data.date,"deaths": parseInt(response[6].data.data.deaths_diff) })
-  console.log(data)
-  render(data) 
-})).catch(errors => {
-  // react on errors.
-  console.log(errors.message) 
-})  
-
-const svg = d3.select('svg');
-const width = +svg.attr('width');
-const height = +svg.attr('height');
-
-const render = data => {
-
-  const xValue = d => d['deaths'];
-  const yValue = d => d.date;
-  const margin = { top: 50, right: 40, bottom: 27, left: 80 };
-  const innerWidth = width - margin.left - margin.right;
-  const innerHeight = height - margin.top - margin.bottom;
-  
-  const xScale = d3.scaleLinear()
-    .domain([0, d3.max(data, xValue)])
-    .range([0, innerWidth]);
-  const yScale = d3.scaleBand()
-    .domain(data.map(yValue))
-    .range([0, innerHeight])
-    .padding(0.1);
-  
-  const g = svg.append('g')
-    .attr('transform', `translate(${margin.left},${margin.top})`);
-  
-  const xAxisTickFormat = number =>
-  d3.format('.3s')(number)
-      .replace('G', 'B');
-  
-  const xAxis = d3.axisBottom(xScale)
-    .tickFormat(xAxisTickFormat)
-    .tickSize(-innerHeight);
-  
-  g.append('g')
-    .call(d3.axisLeft(yScale))
-    .selectAll('.domain, .tick line')
-      .remove();
-  
-  const xAxisG = g.append('g').call(xAxis)
-    .attr('transform', `translate(0,${innerHeight})`);
-  
-  xAxisG.select('.domain').remove();
-  
-  xAxisG.append('text')
-      .attr('class', 'axis-label')
-      .attr('y', 65)
-      .attr('x', innerWidth / 2)
-      .attr('fill', 'black')
-      .text(d3.xAxisLabelText);
-  
-  g.selectAll('rect').data(data)
-    .enter().append('rect')
-      .attr('y', d => yScale(yValue(d)))
-      .attr('width', d => xScale(xValue(d)))
-      .attr('height', yScale.bandwidth());
-  
-  g.append('text')
-      .attr('class', 'title')
-      .attr('y', -10)
-      .text(d3.titleText);
-};
-
-
-    //     const width = 550; 
-    //     const height =  400;
-    //     const margin = {top:20, bottom:20, left:20, right:20}
-    //     const svg = d3.select("#chart").append("svg")
-    //     .attr("height", height - margin.top - margin.bottom)
-    //     .attr("width", width - margin.left - margin.right)
-    //     .attr("viewbox" ,[0,0,width,height]);
+            <div class="row ">
+                <div class="col-4" >
+                    <div class="row">
+                        <div class="col-7 d-flex justify-content-end display-6" id="cases1"></div>
+                        <div class="col-5 justify-content-start" id="cases2"><img src="./covidweatherresources/redup.png" class="img-fluid m-2" style="width:20%; height: auto;"></div>
+                        
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="row">
+                        <div class="col-7 d-flex justify-content-end display-6" id="deaths1"></div>
+                        <div class="col-5 justify-content-start" id="deaths2"><img src="./covidweatherresources/redup.png" class="img-fluid m-2" style="width:20%; height: auto;"></div>
+                    </div>
+                </div>
+                <div class="col-4 text-center display-6" id="fatal"></div>
+            </div>
+            <div class="row py-5 px-4">
+                <div class="col-6 bg-white">
+                    <div class="h3 text text-center pt-4">Number of cases last week</div>
+                <div id="chart"></div>
+                </div>
         
-    //     const x = d3.scaleBand()
-    //     .domain(d3.range(data.length))
-    //     .range([margin.left,width - margin.right])
-    //     .padding(0.1);
-
-    //     const y = d3.scaleLinear()
-    //     .domain([0,20])
-    //     .range([height-margin.bottom, margin.top])
-
-    // svg
-    // .append('g')
-    // .attr("fill", "lightgreen")
-    // .selectAll("rect")
-    // .data(data)
-    // .join("rect")
-    // .attr("x", (d,i)=>x(i))
-    // .attr("y", (d)=>y(d.deaths))
-    // .attr("height", d=>y(0)-y(d.deaths))
-    // .attr("width", x.bandwidth())
-
-    // function xAxis(g){
-    //     g.attr('transform', `translate(0, ${height - margin.bottom})`)
-    //     .call(d3.axisBottom(x).tickFormat(i =>data[i].deaths))
-    //     .attr('font-size','10px')
-    // }
-
-    // function yAxis(g){
-    //   g.attr('transform', `translate(${margin.left},0)`)
-    //   .call(d3.axisLeft(y).ticks(null,data.format))
-    //   .attr('font-size','10px')
-
-    // }
-    // svg.append('g').call(yAxis)
-    // svg.append('g').call(xAxis)
-    // svg.node()
-
-
-
-
-
-
-</script>
-           <!-- Bootstrap JS CDN -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-</body>
-</html>
+                <div class="col-6 bg-white">
+                    <div class="h3 text text-center pt-4">Number of deaths last week</div>
+                <div id="chart2"></div>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+        </div>
+        
+            
+        
+        <script>
+        
+        axios.get("https://covid-api.com/api/reports/total?iso=SGP",{
+        headers: {"Access-Control-Allow-Origin": "*"}})
+        .then(response =>  {
+                // console.log(response.data.data)
+                today = new Date().toDateString()
+                document.getElementById("date").innerText = "Covid 19 numbers as of " + today 
+        
+                totalcases = response.data.data.confirmed
+                dailycases = response.data.data.confirmed_diff
+                document.getElementById("cases1").innerText = totalcases 
+                node1=document.createTextNode(dailycases)
+                document.getElementById("cases2").appendChild(node1)
+        
+                totaldeaths = response.data.data.deaths
+                dailydeaths = response.data.data.deaths_diff
+                document.getElementById("deaths1").innerText = totaldeaths 
+                node2=document.createTextNode(dailydeaths)
+                document.getElementById("deaths2").appendChild(node2)
+        
+                fatality = response.data.data.fatality_rate
+                fatality = fatality*100
+                document.getElementById("fatal").innerText = fatality + "%"
+        
+            })
+                    .catch(error => {
+                console.log(error.message)   
+                     });  
+        
+        var date= new Date();
+        today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        datetodayurl  = today.toLocaleString()
+        
+        one = date.setDate(date.getDate() - 7);
+        dateone = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        dateoneurl  = dateone.toLocaleString()
+        
+        two = date.setDate(date.getDate() - 1);
+        datetwo = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        datetwourl  = datetwo.toLocaleString()
+        
+        three = date.setDate(date.getDate() - 1);
+        datethree = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        datethreeurl  = datethree.toLocaleString()
+        
+        four = date.setDate(date.getDate() - 1);
+        datefour = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        datefoururl  = datefour.toLocaleString()
+        
+        five = date.setDate(date.getDate() -1);
+        datefive = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        datefiveurl  = datefive.toLocaleString()
+        
+        six = date.setDate(date.getDate() -1);
+        datesix = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        datesixurl  = datesix.toLocaleString()
+        
+        seven = date.setDate(date.getDate() -1);
+        dateseven = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        datesevenurl  = dateseven.toLocaleString()
+        
+        let data =[]
+        data2 = []
+        const requestOne = axios.get("https://covid-api.com/api/reports/total?date="+dateoneurl +"&iso=SGP",{
+        headers: {"Access-Control-Allow-Origin": "*"}});
+        const requestTwo = axios.get("https://covid-api.com/api/reports/total?date="+datetwourl +"&iso=SGP",{
+        headers: {"Access-Control-Allow-Origin": "*"}});
+        const requestThree = axios.get("https://covid-api.com/api/reports/total?date="+datethreeurl +"&iso=SGP",{
+        headers: {"Access-Control-Allow-Origin": "*"}});
+        const requestFour = axios.get("https://covid-api.com/api/reports/total?date="+datefoururl +"&iso=SGP",{
+        headers: {"Access-Control-Allow-Origin": "*"}});
+        const requestFive = axios.get("https://covid-api.com/api/reports/total?date="+datefiveurl +"&iso=SGP",{
+        headers: {"Access-Control-Allow-Origin": "*"}});
+        const requestSix = axios.get("https://covid-api.com/api/reports/total?date="+datesixurl +"&iso=SGP",{
+        headers: {"Access-Control-Allow-Origin": "*"}});
+        const requestSeven = axios.get("https://covid-api.com/api/reports/total?date="+datesevenurl +"&iso=SGP",{
+        headers: {"Access-Control-Allow-Origin": "*"}});
+        
+        axios.all([requestOne, requestTwo, requestThree, requestFour, requestFive, requestSix, requestSeven])
+        .then(axios.spread((...response) => {
+          data.push({"date":response[6].data.data.date,"deaths": parseInt(response[6].data.data.confirmed_diff) })
+          data.push({"date":response[5].data.data.date,"deaths": parseInt(response[5].data.data.confirmed_diff) })
+          data.push({"date":response[4].data.data.date,"deaths": parseInt(response[4].data.data.confirmed_diff) })
+          data.push({"date":response[3].data.data.date,"deaths": parseInt(response[3].data.data.confirmed_diff) })
+          data.push({"date":response[2].data.data.date,"deaths": parseInt(response[2].data.data.confirmed_diff) })
+          data.push({"date":response[1].data.data.date,"deaths": parseInt(response[1].data.data.confirmed_diff) })
+          data.push({"date":response[0].data.data.date,"deaths": parseInt(response[0].data.data.confirmed_diff) })
+          console.log(data)
+          data2.push({"date":response[6].data.data.date,"deaths": parseInt(response[6].data.data.deaths_diff) })
+          data2.push({"date":response[5].data.data.date,"deaths": parseInt(response[5].data.data.deaths_diff) })
+          data2.push({"date":response[4].data.data.date,"deaths": parseInt(response[4].data.data.deaths_diff) })
+          data2.push({"date":response[3].data.data.date,"deaths": parseInt(response[3].data.data.deaths_diff) })
+          data2.push({"date":response[2].data.data.date,"deaths": parseInt(response[2].data.data.deaths_diff) })
+          data2.push({"date":response[1].data.data.date,"deaths": parseInt(response[1].data.data.deaths_diff) })
+          data2.push({"date":response[0].data.data.date,"deaths": parseInt(response[0].data.data.deaths_diff) })
+          console.log(data2)
+          
+        // chart for daily cases
+        var width = 500; 
+            var height =  700;
+            var margin = {top:20, bottom:20, left:40, right:20}
+            var svg = d3.select("#chart").append("svg")
+            .attr("height", height - margin.top - margin.bottom)
+            .attr("width", width - margin.left - margin.right)
+            .attr("viewBox" ,[0,0,width,height]);
+            
+            var x = d3.scaleBand()
+            .domain(d3.range(data.length))
+            .range([margin.left,width - margin.right])
+            .padding(0.2);
+        
+            var y = d3.scaleLinear()
+            .domain([0,6000])
+            .range([height-margin.bottom, margin.top])
+        
+            svg
+            .append('g')
+            .attr("fill", "#346624")
+            .selectAll("rect")
+            .data(data)
+            .join("rect")
+            .attr("x", (d,i)=>x(i))
+            .attr("y", (d)=>y(d.deaths))
+            .attr("height", d=>y(0)-y(d.deaths))
+            .attr("width", x.bandwidth())
+            .attr('class','rectangle')
+        
+            function xAxis(g){
+                g.attr('transform', `translate(0, ${height - margin.bottom})`)
+                .call(d3.axisBottom(x).tickFormat(i =>data[i].date))
+                .attr('font-size','10px')
+            }
+        
+            function yAxis(g){
+              g.attr('transform', `translate(${margin.left},0)`)
+              .call(d3.axisLeft(y).ticks(null,data.format))
+              .attr('font-size','10px')
+        
+            }
+            svg.append('g').call(yAxis)
+            svg.append('g').call(xAxis)
+            svg.node()
+        
+        
+        // chart for daily death
+            var width = 500; 
+            var height =  700;
+            var margin = {top:20, bottom:20, left:20, right:20}
+            var svg2 = d3.select("#chart2").append("svg")
+            .attr("height", height - margin.top - margin.bottom)
+            .attr("width", width - margin.left - margin.right)
+            .attr("viewBox" ,[0,0,width,height]);
+            
+            var x = d3.scaleBand()
+            .domain(d3.range(data.length))
+            .range([margin.left,width - margin.right])
+            .padding(0.2);
+        
+            var y = d3.scaleLinear()
+            .domain([0,20])
+            .range([height-margin.bottom, margin.top])
+        
+            svg2
+            .append('g')
+            .attr("fill", "#940303")
+            .selectAll("rect")
+            .data(data2)
+            .join("rect")
+            .attr("x", (d,i)=>x(i))
+            .attr("y", (d)=>y(d.deaths))
+            .attr("height", d=>y(0)-y(d.deaths))
+            .attr("width", x.bandwidth())
+            .attr('class','rectangle')
+        
+            function xAxis(g){
+                g.attr('transform', `translate(0, ${height - margin.bottom})`)
+                .call(d3.axisBottom(x).tickFormat(i =>data[i].date))
+                .attr('font-size','10px')
+            }
+        
+            function yAxis(g){
+              g.attr('transform', `translate(${margin.left},0)`)
+              .call(d3.axisLeft(y).ticks(null,data.format))
+              .attr('font-size','10px')
+        
+            }
+            svg2.append('g').call(yAxis)
+            svg2.append('g').call(xAxis)
+            svg2.node()
+        })).catch(errors => {
+          // react on errors.
+          console.log(errors.message) 
+        })  
+        
+        
+        
+        
+        
+        
+        </script>
+                   <!-- Bootstrap JS CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        </body>
+        </html>
