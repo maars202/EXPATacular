@@ -194,15 +194,39 @@ const questions = [
     },
 
     {
-        question: "What is the name of Singapore's International Airport?",
+        question: "A majority of Singaporeans live in a ______",
         answers: [
-            {text: "Singapore Airport", correct: false},
-            {text: "Kranji Airport", correct: false},
-            {text: "Singa Airport", correct: false},
-            {text: "Changi International Airport", correct: true}
+            {text: "Condominium", correct: false},
+            {text: "Bungalow", correct: false},
+            {text: "HDB Flat", correct: true},
+            {text: "Terrace Estate", correct: false}
 
         ],
-        info: "Changi International Airport is an ultra-modern aviation facility and the hub city for Singapore's national carrier Singapore Airlines. Changi Airport is an eight-time winner of the World's Best Airport title and is accesible through the MRT!"
+        info: "As Singapore is a very small island, space is extremely limited. The Singaporean government decided to build HDB flats instead of houses. Thus, it would take up less space."
+    },
+
+    {
+        question: "What is the highest point of Singapore?",
+        answers: [
+            {text: "Sentosa Island", correct: false},
+            {text: "Redhill", correct: false},
+            {text: "Bukit Timah Hill", correct: true},
+            {text: "Mount Faber", correct: false}
+
+        ],
+        info: "Bukit Timah Hill is the highest point in the island of Singapore. Its height is about 176 m/ 577 ft."
+    },
+
+    {
+        question: "What language is the medium of instruction in Singaporean schools?",
+        answers: [
+            {text: "English", correct: true},
+            {text: "Malay", correct: false},
+            {text: "Chinese", correct: false},
+            {text: "Tamil", correct: false}
+
+        ],
+        info: "Prime Minister Lee believed that widespread English proficiency would be key to building Singapore’s economy and developing its regional and global competitiveness. Under his plan, English would become the medium of instruction in Singaporean schools"
     },
 
 ]
