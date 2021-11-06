@@ -1,0 +1,135 @@
+.navbar-nav>li {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.extra {
+    background-color: rgb(64, 78, 64);
+    color: white;
+    width: 100px;
+    height: 40px;
+}
+
+.btn-primary {
+    background-color: rgb(37, 115, 218);
+}
+
+
+.sub-lines {
+    font-size: 14px;
+    line-height: 1.5;
+    padding-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+a {
+    text-decoration: none;
+    color: black
+}
+
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.sub-main {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 700px;
+}
+
+.body-1 {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+.inner-body-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.body-2 {
+    display: flex;
+    align-items: center;
+}
+
+.inner-body-2 {
+    display: flex;
+    align-items: center;
+}
+
+.inner-inner-body-2 {
+    display: flex;
+    align-items: center;
+    width: 80px;
+}
+
+.following {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.end {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    width: 24px;
+    flex-shrink: none;
+}
+
+.button-load {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.post-ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    padding: 0;
+    column-gap: 20px;
+}
+
+.post {
+    border: solid thin rgba(0, 0, 0, 0.2);
+    min-height: 238px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+footer {
+    background-color: rgb(64, 78, 64);
+    display: block;
+    position: absolute;
+    bottom: auto;
+    left: 0px;
+    margin-left: 0px;
+    width: 100%;
+    min-width: 980px;
+    top: 1201px;
+    height: 108px;
+    margin-top: 80px;
+}
