@@ -72,6 +72,7 @@
     </style>
 
 
+ 
  <!--  background image -->  
 <div class="bg-image justify-content-center align-items-center img-responsive  " style="background-image: url('./covidweatherresources/backgroundimage.jpg');background-size: cover;">
     <div class="container-fluid " style = "padding-top: 10%; padding-bottom: 10%;">
@@ -83,7 +84,7 @@
  <div class="bg-white opacity-75 m-5  justify-content-center">
     <div class="row   "  style = "padding-top: 5%; padding-bottom: 2%;">
         <div class="col-1"></div>
-        <div class="col-10">
+        <div class="col-10" style="overflow-x:auto">
         <table class="table table-hover">
             <thead  class="text-center">
               <tr>
@@ -106,7 +107,7 @@
       </div>
     </div>
     <div class="row justify-content-center"  style = "padding-bottom: 5%;">
-    <div id="mapid"></div>
+    <div id="mapid" style="overflow-x:auto"></div>
     </div>
     
     
@@ -167,7 +168,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1Ijoic29vbmhhbyIsImEiOiJja3VqdnNtMngwbWExMm9wOHN0czJ0aGhlIn0.c7Tlc8lswiBqtTd4CLNEHw'
 }).addTo(mymap);
 var sunicon = L.icon({
-    iconUrl: './covidweatherresources/sun.svg',
+    iconUrl: './covidweatherresources/sunicon.png',
     iconSize:     [15, 15], // size of the icon
     shadowSize:   [50, 64], // size of the shadow
     iconAnchor:   [0, 10], // point of the icon which will correspond to marker's location
@@ -175,7 +176,7 @@ var sunicon = L.icon({
     popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
 });
 var rainicon = L.icon({
-    iconUrl: './covidweatherresources/rain.svg',
+    iconUrl: './covidweatherresources/rainicon.png',
     iconSize:     [15, 15], // size of the icon
     shadowSize:   [50, 64], // size of the shadow
     iconAnchor:   [0, 10], // point of the icon which will correspond to marker's location
@@ -183,8 +184,8 @@ var rainicon = L.icon({
     popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
 });
 var nighticon = L.icon({
-    iconUrl: './covidweatherresources/night.png',
-    iconSize:     [15, 15], // size of the icon
+    iconUrl: './covidweatherresources/nighticon.png',
+    iconSize:     [30, 30], // size of the icon
     shadowSize:   [50, 64], // size of the shadow
     iconAnchor:   [0, 10], // point of the icon which will correspond to marker's location
     shadowAnchor: [4, 62],  // the same for the shadow
@@ -192,7 +193,7 @@ var nighticon = L.icon({
 });
 
 var nightrainicon = L.icon({
-    iconUrl: './covidweatherresources/nightrain.png',
+    iconUrl: './covidweatherresources/rainnight.png',
     iconSize:     [15, 15], // size of the icon
     shadowSize:   [50, 64], // size of the shadow
     iconAnchor:   [0, 10], // point of the icon which will correspond to marker's location
