@@ -229,4 +229,15 @@ const questions = [
         info: "Prime Minister Lee believed that widespread English proficiency would be key to building Singapore’s economy and developing its regional and global competitiveness. Under his plan, English would become the medium of instruction in Singaporean schools"
     },
 
+    {
+        question: "Chewing Gum is Legal in Singapore",
+        answers: [
+            {text: "True", correct: false},
+            {text: "False", correct: true}
+
+
+        ],
+        info: "The sale of chewing gum in Singapore has been illegal since 1992. Since 2004, an exception has existed for therapeutic, dental, and nicotine chewing gum, which can be bought from a doctor or registered pharmacist."
+    },
+
 ]
