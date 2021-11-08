@@ -11,11 +11,15 @@
     <!-- <script src="https://unpkg.com/vue@next"></script> -->
      <!-- D3  -->
      <script src="https://d3js.org/d3.v5.min.js"></script>
-     <link rel="stylesheet" href="css/styles.css"/>
      <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
+    <style>
+        .rectangle:hover {
+            opacity: 0.66
+        }
+    </style>
     <div class="container-fluid">
 
         <!-- NAVBAR -->
@@ -62,46 +66,43 @@
             </nav>
 
         </div>
-        <!-- NAVBAR -->
     </div>
 
-        <!--  background image -->  
-<div class="bg-image justify-content-center align-items-center img-responsive " style="background-image: url('./covidweatherresources/backgroundimage2.jpg');background-size: cover;">
-<div class="container-fluid" style = "padding-top: 10%; padding-bottom: 10%;">
+     <!--  background image -->  
+<div class="bg-image " style="background-image: url('./covidweatherresources/backgroundimage2.jpg');background-size: cover;">
+<div class="container-fluid" style = "padding-top: 15%; padding-bottom: 10%;">
 <h1 class="text-center">Covid Statistics</h1>
     <div class="row">
         <div class="col mb-5 text-center" id="date"></div>
     </div>
     <div class="row ">
-        <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Total Cases</div>
-        <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Total Deaths</div>
-        <div class="col-4 text-center" style="font-weight:bold; font-size: 140%;">Fatality Rate</div>
-    </div>
-    <div class="row ">
-        <div class="col-4" >
+        <div class="col-md-4 text-center" style="font-weight:bold; font-size: 140%;">Total Cases
             <div class="row">
-                <div class="col-7 d-flex justify-content-end display-6" id="cases1"></div>
-                <div class="col-5 justify-content-start" id="cases2"><img src="./covidweatherresources/redup.png" class="img-fluid m-2" style="width:20%; height: auto;"></div>
                 
-            </div>
+            <div class="col-7 d-flex justify-content-end display-4 " id="cases1"></div>
+            <div class="col-5 d-flex justify-content-start" id="cases2"><img src="./covidweatherresources/redup.png" class="img-fluid m-1" style="width:20%; height: auto;"></div>
         </div>
-        <div class="col-4 text-center">
+        </div>
+        <div class="col-md-4 text-center" style="font-weight:bold; font-size: 140%;">Total Deaths
             <div class="row">
-                <div class="col-7 d-flex justify-content-end display-6" id="deaths1"></div>
-                <div class="col-5 justify-content-start" id="deaths2"><img src="./covidweatherresources/redup.png" class="img-fluid m-2" style="width:20%; height: auto;"></div>
-            </div>
+            <div class="col-7 d-flex justify-content-end display-4" id="deaths1"></div>
+            <div class="col-5 d-flex justify-content-start " id="deaths2"><img src="./covidweatherresources/redup.png" class="img-fluid m-1" style="width:20%; height: auto;"></div>
         </div>
-        <div class="col-4 text-center display-6" id="fatal"></div>
+        </div>
+        <div class="col-md-4 text-center" style="font-weight:bold; font-size: 140%;">Fatality Rate
+            <div class="text-center display-4" id="fatal"></div>
+        </div>
     </div>
-    <div class="row py-5 px-4">
-        <div class="col-6 bg-white opacity-75">
-            <div class="h3 text text-center pt-4">Number of cases last week</div>
-        <div id="chart"></div>
+
+    <div class="row py-5 px-4 ">
+        <div class="col-6 bg-white ">
+            <div class="h4 text text-center pt-4">Number of cases for past 7 days</div>
+        <div id="chart" style="overflow-x:auto"></div>
         </div>
 
-        <div class="col-6 bg-white opacity-75">
-            <div class="h3 text text-center pt-4">Number of deaths last week</div>
-        <div id="chart2"></div>
+        <div class="col-6 bg-white ">
+            <div class="h4 text text-center pt-4">Number of deaths for past 7 days</div>
+        <div id="chart2" style="overflow-x:auto"></div>
         </div>
     </div>
 </div>
@@ -134,7 +135,7 @@ headers: {"Access-Control-Allow-Origin": "*"}})
 
         fatality = response.data.data.fatality_rate
         fatality = fatality*100
-        document.getElementById("fatal").innerText = fatality + "%"
+        document.getElementById("fatal").innerText = fatality.toFixed(2) + "%"
 
     })
             .catch(error => {
@@ -144,35 +145,51 @@ headers: {"Access-Control-Allow-Origin": "*"}})
 var date= new Date();
 today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 datetodayurl  = today.toLocaleString()
-
-one = date.setDate(date.getDate() - 7);
+if (datetodayurl.charAt(datetodayurl.length-2) =="-"){
+   datetodayurl = datetodayurl.slice(0,-1)+"0" +  datetodayurl.slice(-1)
+}
+one = date.setDate(date.getDate() - 1);
 dateone = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 dateoneurl  = dateone.toLocaleString()
-
+if (dateoneurl.charAt(dateoneurl.length-2) =="-"){
+    dateoneurl = dateoneurl.slice(0,-1)+"0" +  dateoneurl.slice(-1)
+}
 two = date.setDate(date.getDate() - 1);
 datetwo = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 datetwourl  = datetwo.toLocaleString()
-
+if (datetwourl.charAt(datetwourl.length-2) =="-"){
+    datetwourl = datetwourl.slice(0,-1)+"0" +  datetwourl.slice(-1)
+}
 three = date.setDate(date.getDate() - 1);
 datethree = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 datethreeurl  = datethree.toLocaleString()
-
+if (datethreeurl.charAt(datethreeurl.length-2) =="-"){
+    datethreeurl = datethreeurl.slice(0,-1)+"0" +  datethreeurl.slice(-1)
+}
 four = date.setDate(date.getDate() - 1);
 datefour = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 datefoururl  = datefour.toLocaleString()
-
+if (datefoururl.charAt(datefoururl.length-2) =="-"){
+    datefoururl = datefoururl.slice(0,-1)+"0" +  datefoururl.slice(-1)
+}
 five = date.setDate(date.getDate() -1);
 datefive = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 datefiveurl  = datefive.toLocaleString()
-
+if (datefiveurl.charAt(datefiveurl.length-2) =="-"){
+    datefiveurl = datefiveurl.slice(0,-1)+"0" +  datefiveurl.slice(-1)
+}
 six = date.setDate(date.getDate() -1);
 datesix = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 datesixurl  = datesix.toLocaleString()
-
+if (datesixurl.charAt(datesixurl.length-2) =="-"){
+    datesixurl = datesixurl.slice(0,-1)+"0" +  datesixurl.slice(-1)
+}
 seven = date.setDate(date.getDate() -1);
 dateseven = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 datesevenurl  = dateseven.toLocaleString()
-
+if (datesevenurl.charAt(datesevenurl.length-2) =="-"){
+    datesevenurl = datesevenurl.slice(0,-1)+"0" +  datesevenurl.slice(-1)
+}
 let data =[]
 data2 = []
 const requestOne = axios.get("https://covid-api.com/api/reports/total?date="+dateoneurl +"&iso=SGP",{
@@ -212,7 +229,7 @@ axios.all([requestOne, requestTwo, requestThree, requestFour, requestFive, reque
 // chart for daily cases
 var width = 500; 
     var height =  700;
-    var margin = {top:0, bottom:20, left:40, right:20}
+    var margin = {top:20, bottom:20, left:35, right:20}
     var svg = d3.select("#chart").append("svg")
     .attr("height", height - margin.top - margin.bottom)
     .attr("width", width - margin.left - margin.right)
@@ -224,7 +241,7 @@ var width = 500;
     .padding(0.2);
 
     var y = d3.scaleLinear()
-    .domain([0,6000])
+    .domain([0,5000])
     .range([height-margin.bottom, margin.top])
 
     svg
@@ -259,7 +276,7 @@ var width = 500;
 // chart for daily death
     var width = 500; 
     var height =  700;
-    var margin = {top:20, bottom:20, left:20, right:20}
+    var margin = {top:20, bottom:25, left:20, right:20}
     var svg2 = d3.select("#chart2").append("svg")
     .attr("height", height - margin.top - margin.bottom)
     .attr("width", width - margin.left - margin.right)
