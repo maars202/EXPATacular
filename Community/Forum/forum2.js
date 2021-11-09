@@ -2,7 +2,6 @@ function get_latest_posts() {
   var info = [];
   var str = ``;
   ("https://login-backend1.herokuapp.com/api/users/latest_post");
-  // 'http://localhost:5000/api/users/latest_post'
   var config = {
     method: "get",
     url: "https://login-backend1.herokuapp.com/api/users/latest_post",
@@ -115,10 +114,11 @@ function postComments(info) {
       //console.log(response.data);
       var comment = response.data.content ;
       var id = response.data._id;
+      var likes = response.data.likes ;
 
-      var date = response.data.date;
-      let index = date.indexOf("T");
-      date = date.slice(0, index);
+       var date = response.data.date;
+        dateStr = new Date(date)
+        date = JSONDateWithTime(dateStr);
 
       var user = "Annoynamous " + id.slice(3, 8);
       str += `
@@ -127,7 +127,18 @@ function postComments(info) {
       ${user}
       </div>
         <p style='margin-left:10px ; margin-right:10px ; margin-top:10px ; background-color: white ; padding: 10px'  class ="border">${comment}</p>
-        <p class="text-muted ;" style='text-align:right ; margin-right: 10px'>${date}</p>
+         <p class="text-muted ;" style='text-align:right ; margin-right: 10px ; margin-left:10px'>
+              
+              <span style='float:left'>
+              <button type="button" class="btn btn-outline" id = '${id}' onclick="increase(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  style ='color:red ; margin-right:15px' class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+              </svg>
+              <span id='clicks${id}'>${likes}</span>
+              </button>
+              </span>
+
+          ${date}</p>
         </div>
         </br>
       `
@@ -159,16 +170,18 @@ function getComments(info){
     
     axios(config)
         .then(function (response) {
-          //console.log(response.data);
           for(each_response of response.data){
-              //console.log(each_response.content);
               var comment = each_response.content ;
               var id = each_response._id;
-
+              var likes = each_response.likes ;
+            
               var date = each_response.date;
-              let index = date.indexOf("T");
-              date = date.slice(0, index);
-
+              dateStr = new Date(date)
+              date = JSONDateWithTime(dateStr);
+              
+              //let index = date.indexOf("T");
+              //date = date.slice(0, index);
+              
               var user = "Annoynamous " + id.slice(3, 8);
               str += `
               <div class ="border border-secondary" style='background-color: rgb(245, 245, 245)' >
@@ -176,7 +189,20 @@ function getComments(info){
               ${user}
               </div>
               <p style='margin-left:10px ; margin-right:10px ; margin-top:10px ; background-color: white ; padding: 10px'  class ="border">${comment}</p>
-              <p class="text-muted ;" style='text-align:right ; margin-right: 10px'>${date}</p>
+              
+              <p class="text-muted ;" style='text-align:right ; margin-right: 10px ; margin-left:10px'>
+              
+              <span style='float:left'>
+              <button type="button" class="btn btn-outline" id = '${id}' onclick="increase(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  style ='color:red ; margin-right:15px' class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+              </svg>
+              <span id='clicks${id}'>${likes}</span>
+              </button>
+              </span>
+
+              ${date}</p>
+
               </div>
               </br>
               `
@@ -188,3 +214,66 @@ function getComments(info){
     });
 
 }
+
+function JSONDateWithTime(dateStr) {
+    var d = dateStr ;
+    var m, day;
+    m = d.getMonth() + 1;
+    if (m < 10)
+        m = '0' + m
+    if (d.getDate() < 10)
+        day = '0' + d.getDate()
+    else
+        day = d.getDate();
+    var formattedDate = d.getFullYear() + "-" + m + "-" + day;
+    var hours = (d.getHours() < 10) ? "0" + d.getHours() : d.getHours();
+    hours = (hours <= 12) ? hours : hours - 12 ;
+    var minutes = (d.getMinutes() < 10) ? "0" + d.getMinutes() : d.getMinutes();
+
+    if(d.getHours() >= 12 && d.getHours() != 24){
+      var end = 'pm'
+    }
+    else{
+      var end = "am"
+    }
+    var formattedTime = hours + ":" + minutes;
+    formattedDate = formattedDate + " " + formattedTime + end;
+    return formattedDate;
+}
+
+
+function increase(btninfo){
+ var btnId = btninfo.id ;
+ btninfo.onclick = "";
+
+ var showClick = document.getElementById(`clicks${btnId}`)
+ var numberOfClicks = showClick.innerText ;
+ showClick.innerText = parseInt(numberOfClicks) + 1 ;
+
+  var id = btnId;
+  var str = `` ;
+  
+  var data = JSON.stringify({
+        '_id': id ,
+  })
+    
+  var config = {
+      method: "post",
+        url: "https://login-backend1.herokuapp.com/api/forum/likecomment",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: data,
+    };
+    
+    axios(config)
+        .then(function (response) {
+          //console.log(response.data);
+                
+        })
+        .catch(function (error) {
+          console.log(error);
+    });
+
+}
+
