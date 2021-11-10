@@ -1,14 +1,10 @@
-.navbar-nav>li {
-    margin-left: 25px;
-    margin-right: 25px;
-}
-
 .extra {
     background-color: rgb(64, 78, 64);
     color: white;
     width: 100px;
     height: 40px;
 }
+
 
 .btn-primary {
     background-color: rgb(37, 115, 218);

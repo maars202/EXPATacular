@@ -24,16 +24,6 @@
 
 <style>
     /* Modify the background color */
-         
-        .navbar-custom {
-            background-color: darkslategrey;
-        }
-        /* Modify brand and text color */
-         
-        .navbar-custom .navbar-brand,
-        .navbar-custom .navbar-text {
-            color: darkslategrey;
-        }
 
         .currency_box{
             
@@ -47,13 +37,66 @@
         .card_theme {
           background-image: url("./imgs/darkstars.jpeg");
         }
+
+        .nav-link{
+            color: #757575;
+            margin-right: 40px;
+        }
+
         
     </style>
 </head>
 <body>
 
 
-     <div id="app" class=  'container' style = "height: 30cm">
+    <div id="app" class='container-fluid' >
+
+      <!-- NAVBAR -->
+      <div class="row" style = "background-color:#F2F2F2;">
+        <nav class="ps-sm-0 ps-md-5 navbar navbar-expand-md navbar-light pt-md-4 fixed-top" style = "background-color:#F2F2F2;">
+            <div class="container-fluid ps-3">
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <button class="navbar-toggler m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="./about_page.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="./Community/Forum/forum.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./foodAndPlaces.html">Food & Places</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./trivia.html">Trivia!</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tools
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="./tools.html">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="./currency.html">Currency Converter</a></li>
+                        <li><a class="dropdown-item" href="./emergency_contact.html">Emergency Contacts</a></li>
+                        <li><a class="dropdown-item" href="./translation.html">Translator</a></li>
+                        <li><a class="dropdown-item" href="./weather.html">Weather Forecast</a></li>
+                        <li><a class="dropdown-item" href="./covid.html">Covid Stats</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+
+      </div>
+      <!-- NAVBAR -->
+
         <div class="jumbotron jumbotron-fluid" style="margin-top:30px; width: 100%">
             <div class="container">
               <div class="row">
@@ -68,7 +111,7 @@
                 <div class="col-sm-6" style="justify-content: center; text-align: center;">
                   <p>From:</p>
                   <p id = "country_from"></p>
-                  <img :src="src_from" alt="" style = "width: 60%;">
+                  <img :src="src_from" alt="" style = "width: 60%; padding-bottom:5%">
                   <!-- <h1>{{country_from}}</h1>  -->
                 <div class="form-group text-center">
                               <select class="form-select" id="country_from_selected" v-model="country_from" v-on:change="process_src">
@@ -81,7 +124,7 @@
                 <div class="col-sm-6" style="justify-content: center; text-align: center;">
                   <p>To:</p>
                   <p id = "country_to"></p>
-                  <img :src="src_to" alt="" style = "width: 60%;">
+                  <img :src="src_to" alt="" style = "width: 60%; padding-bottom:5%">
                   <!-- <h1>https://laendercode.net/img/flag-icon-css/flags/4x3/{{img_list[country_to]}}.svg</h1> -->
                   <!-- <h1>{{currency_names[country_to]}}</h1>  -->
                   <div class="form-group text-center">
@@ -103,12 +146,7 @@
 
     </div>
 
-          <nav class="navbar navbar-custom fixed-bottom" style="height:100px">
-            <a class="navbar-brand" href="#">
-              
-          </a>
-        </nav>
-    </div>
+  </div>
 
 
             
