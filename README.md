@@ -1,32 +1,27 @@
-# tourist_app
-WADII_project
+# EXPATacular
+Project: WADII_project
 
-# Foobar
+Group Members:
+___
+___
+___
 
-Foobar is a Python library for dealing with word pluralization.
+# How to set up this application
+Online:
+https://maars202.github.io/tourist_app/
 
-## Installation
+Local:
+Insert files into web root and launch http://localhost/tourist_app/index.html in browser
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+# APIs 
 
-```bash
-pip import
-import foobar
+1. Covid-api
 
-# returns 'words'
-foobar.pluralize('word')
 
-# returns 'geese'
-foobar.pluralize('goose')
+# External tools used
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
