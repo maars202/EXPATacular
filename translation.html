@@ -17,6 +17,22 @@
 
    <!-- Axios -->
    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+   <style>
+     .translator_cover {
+      background-image: url(https://www.telegraph.co.uk/content/dam/travel/Spark/singapore-tourism/masjid-sultan-mosque-xlarge.jpg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom:0%;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        width: 100%;
+
+     }
+
+   </style>
 </head>
 
 <body>
@@ -63,59 +79,51 @@
         </div>
     </nav>
 </div>
-<!-- class="bg-cover" -->
-    <div class="bg-cover w-100" style="background-image: url(https://www.telegraph.co.uk/content/dam/travel/Spark/singapore-tourism/masjid-sultan-mosque-xlarge.jpg);
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom:0%;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        width: 100%;
-
-        
-        "></div>
-        <!-- background-size: cover; -->
+    <div class="bg-cover w-100 translator_cover" ></div>
     <div class="container-fluid container" >
-      <!-- style="padding: 20px; background-image: url(https://images.unsplash.com/photo-1542833278-f4deb3180291?ixlib=rb-1.2.1&auto=format&fit=crop&w=1487&q=80);" -->
-        <!-- <div class="bg-cover" style="background-image: url(https://images.unsplash.com/photo-1542833278-f4deb3180291?ixlib=rb-1.2.1&auto=format&fit=crop&w=1487&q=80);
-        
-        "
-        ></div> -->
 
-        <!-- <h1> {{string_to_translate}}</h1> -->
-
-        
         <div class="row justify-content-center text-center" style="margin-top: 100px;">
-            <div class="col-sm-4 w-25">
-            <div class="card">
+            <div class="col-sm-6" >
+            <div class="card" style="height: 90%;">
                 <div class="card-body text-center">
                     <form> 
                         <div class="form-group text-center">
-                          <select class="form-control" id="src_lang" v-model="src_lang">
+                          <select class="form-select" id="src_lang" v-model="src_lang">
                           </select>
                         </div>
                         <div class="form-group text-left">
                           <label for="exampleFormControlTextarea1">Type your text here:</label>
-                          <textarea class="form-control" id="text_" rows="3" v-model="text"></textarea>
+                          <textarea placeholder="Language will be auto-detected" class="form-control" id="text_" rows="3" v-model="text"></textarea>
+                          
                         </div>
                       </form>
                 </div>
             </div>
             </div>
 
-            <div class="col-sm-4 w-25">
-                <div class="card">
+            <div class="col-sm-6" >
+                <div class="card" style="height: 90%;">
                     <div class="card-body text-center">
                         <form>
+                          
+
+
                             <div class="form-group text-center">
-                              <select class="form-control" id="target_lang" v-model="target_lang">
+                              <select class="form-select dropdown-toggle" id="target_lang" v-model="target_lang">
                               </select>
+
+                              
+
+
                             </div>
                             <div class="form-group text-left" id = "translated">
-                            Please type a text
+                            Translation
                             </div>
+
+                            
+
+
+
                           </form>
                     </div>
                 </div>
@@ -124,11 +132,12 @@
 
         <div class="row" style="padding: 100px;">
             <div class="col-sm-12 text-center">
-                <a href="#" class="btn btn-primary" onclick="process_translate()">Translate</a>
+                <a href="#" class="btn btn-success" onclick="preprocess_translate()">Translate</a>
             </div>
 
           </div>
-
+          
+        
 
 
         
@@ -142,6 +151,8 @@
 <option value=""></option>
 
 <script>
+
+
 
   function adding_options(tag){
     src_lang_select = document.getElementById(tag)
@@ -157,6 +168,44 @@
 
   adding_options("src_lang")
   adding_options("target_lang")
+
+  // initially set to english unless changed:
+  document.getElementById("target_lang").value = "en"
+
+  async function preprocess_translate(){
+    // if selected then set src_lang as selection else 
+    // use detect lang to set src_lang
+    console.log("before processing val: ", document.getElementById("src_lang").value)
+    // if (src_lang = document.getElementById("src_lang").value != null){
+    //   process_translate()
+    // }else{
+      var data = JSON.stringify({
+        "text": document.getElementById("text_").value
+      });
+
+      var config = {
+        method: 'post',
+        url: 'https://login-backend1.herokuapp.com/api/users/detectLanguage',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+        data : data
+      };
+      let src_lang_code
+      await axios(config)
+      .then(function (response) {
+        console.log("LANGUAGE ISSSS: ", JSON.stringify(response.data[0].languages[0].languageCode));
+        src_lang_code = response.data[0].languages[0].languageCode
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+      document.getElementById("src_lang").value = await src_lang_code
+      process_translate()
+    // }
+
+  }
 
 
   function process_translate(){
@@ -186,15 +235,21 @@
 
     axios(config)
     .then(function (response) {
-      console.log(JSON.stringify(response.data[0].translations));
+      console.log(JSON.stringify(response.data[0]));
       result_tag.innerHTML = response.data[0].translations[0].translatedText
     })
     .catch(function (error) {
       console.log(error);
     });
 
+    // document.getElementById("src_lang").value = null
+    // document.getElementById("target_lang").value = "en"
+
+
   }
+
   
+
 
 </script>
 
