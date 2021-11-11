@@ -2,11 +2,11 @@
 Project: WADII_project
 
 Group Members:
-Goh Soon Hao
-Jethro Ong Yong En
-Lim Bei Ling Cheryl
-Maaruni Pandithurai
-Yi Mon Mon Aung
+- Goh Soon Hao
+- Jethro Ong Yong En
+- Lim Bei Ling Cheryl
+- Maaruni Pandithurai
+- Yi Mon Mon Aung
 
 # How to set up this application
 Online:
