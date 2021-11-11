@@ -1,7 +1,7 @@
 # EXPATacular
 Project: WADII_project
 
-##Group Members:
+## Group Members:
 - Goh Soon Hao
 - Jethro Ong Yong En
 - Lim Bei Ling Cheryl
