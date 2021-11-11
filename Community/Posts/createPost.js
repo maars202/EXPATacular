@@ -27,7 +27,7 @@ const app = Vue.createApp({
                 this.errorMsg = null ;
                 var config = {
                     method: 'post',
-                    url: 'https://login-backend1.herokuapp.com/api/users/post_review',
+                    url: 'https://expatacular.herokuapp.com/api/users/post_review',
                     Headers: {
                         'Access-Control-Allow-Origin': "*",
                         'Content-Type': 'application/json',
