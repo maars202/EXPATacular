@@ -1,10 +1,10 @@
 function get_latest_posts() {
   var info = [];
   var str = ``;
-  ("https://login-backend1.herokuapp.com/api/users/latest_post");
+  ("https://expatacular.herokuapp.com/api/users/latest_post");
   var config = {
     method: "get",
-    url: "https://login-backend1.herokuapp.com/api/users/latest_post",
+    url: "https://expatacular.herokuapp.com/api/users/latest_post",
     Headers: {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
@@ -161,7 +161,7 @@ function getComments(info){
     
     var config = {
         method: "post",
-        url: "https://login-backend1.herokuapp.com/api/forum/getcomments4quest",
+        url: "https://expatacular.herokuapp.com/api/forum/getcomments4quest",
         headers: {
           "Content-Type": "application/json",
         },
@@ -259,7 +259,7 @@ function increase(btninfo){
     
   var config = {
       method: "post",
-        url: "https://login-backend1.herokuapp.com/api/forum/likecomment",
+        url: "https://expatacular.herokuapp.com/api/forum/likecomment",
         headers: {
           "Content-Type": "application/json",
         },
