@@ -102,7 +102,7 @@ function postComments(info) {
 
   var config = {
     method: "post",
-    url: "https://login-backend1.herokuapp.com/api/forum/postquestion",
+    url: "https://expatacular.herokuapp.com/api/forum/postquestion",
     headers: {
       "Content-Type": "application/json",
     },
