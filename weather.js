@@ -102,7 +102,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
   wind_readings_list = response[2].data.items[0].readings  
 
 
-  for (station of temp_stations_list){
+   for (station of temp_stations_list){
             for (reading of temp_readings_list){
                 if(reading.station_id == station.id){
                     // console.log(station.name)
@@ -120,7 +120,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
                         document.getElementById("rowone").appendChild(th)
                         document.getElementById("rowone").appendChild(td)
                     }
-                    if (station.name == "West Coast Highway"){
+                    if (station.name == "Clementi Road"){
                         var textname = "South"
                         node = document.createTextNode(textname)
                         th.appendChild(node)
@@ -129,7 +129,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
                         document.getElementById("rowtwo").appendChild(th)
                         document.getElementById("rowtwo").appendChild(td)
                     }
-                    if (station.name == "Pulau Ubin"){
+                    if (station.name == "Kim Chuan Road"){
                         var textname = "East"
                         node = document.createTextNode(textname)
                         th.appendChild(node)
@@ -147,7 +147,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
                         document.getElementById("rowfour").appendChild(th)
                         document.getElementById("rowfour").appendChild(td)
                     }
-                    if (station.name == "Clementi Road"){
+                    if (station.name == "West Coast Highway"){
                         var textname = "Central"
                         node = document.createTextNode(textname)
                         th.appendChild(node)
@@ -173,12 +173,12 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
                         td.appendChild(node)
                         document.getElementById("rowone").appendChild(td)
                     }
-                    if (station.name == "West Coast Highway"){
+                    if (station.name == "Clementi Road"){
                         node = document.createTextNode(reading.value)
                         td.appendChild(node)
                         document.getElementById("rowtwo").appendChild(td)
                     }
-                    if (station.name == "Pulau Ubin"){
+                    if (station.name == "Kim Chuan Road"){
                         node = document.createTextNode(reading.value)
                         td.appendChild(node)
                         document.getElementById("rowthree").appendChild(td)
@@ -188,7 +188,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
                         td.appendChild(node)
                         document.getElementById("rowfour").appendChild(td)
                     }
-                    if (station.name == "Clementi Road"){
+                    if (station.name == "West Coast Highway"){
                         var textname = "Central"
                         node = document.createTextNode(reading.value)
                         td.appendChild(node)
@@ -210,12 +210,12 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
                         td.appendChild(node)
                         document.getElementById("rowone").appendChild(td)
                     }
-                    if (station.name == "West Coast Highway"){
+                    if (station.name == "Clementi Road"){
                         node = document.createTextNode((Math.round(reading.value * 100)/100))
                         td.appendChild(node)
                         document.getElementById("rowtwo").appendChild(td)
                     }
-                    if (station.name == "Pulau Ubin"){
+                    if (station.name == "Kim Chuan Road"){
                         node = document.createTextNode((Math.round(reading.value * 100)/100))
                         td.appendChild(node)
                         document.getElementById("rowthree").appendChild(td)
@@ -225,7 +225,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
                         td.appendChild(node)
                         document.getElementById("rowfour").appendChild(td)
                     }
-                    if (station.name == "Clementi Road"){
+                    if (station.name == "West Coast Highway"){
                         var textname = "Central"
                         node = document.createTextNode((Math.round(reading.value * 100)/100))
                         td.appendChild(node)
