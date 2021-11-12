@@ -18,6 +18,7 @@ Insert files into web root and launch http://localhost/tourist_app/index.html in
 # APIs 
 
 1. Community (Forum) API:
+
 https://expatacular.herokuapp.com/api/users/latest_post
 https://expatacular.herokuapp.com/api/forum/postquestion
 https://expatacular.herokuapp.com/api/forum/getcomments4quest
