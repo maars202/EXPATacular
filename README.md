@@ -10,7 +10,7 @@ Project: WADII_project
 
 # How to set up this application
 Online:
-https://maars202.github.io/tourist_app/
+https://maars202.github.io/EXPATacular/index.html
 
 Local:
 Insert files into web root and launch http://localhost/tourist_app/index.html in browser
@@ -18,12 +18,13 @@ Insert files into web root and launch http://localhost/tourist_app/index.html in
 # APIs 
 
 1. Covid-api
-2. Community (Forum) API:
+2. 
+3. Community (Forum) API:
 - https://login-backend1.herokuapp.com/api/users/latest_posts
 - https://login-backend1.herokuapp.com/api/forum/postquestion
 - https://login-backend1.herokuapp.com/api/forum/getcomments4quest
 - https://login-backend1.herokuapp.com/api/forum/likecomment
-3. Community (Post) API:
+4. Community (Post) API:
 - https://login-backend1.herokuapp.com/api/users/post_review
 
 # External tools used
