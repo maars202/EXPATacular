@@ -110,29 +110,31 @@
               <div class="row" >
                 
                 <div class="col-sm-6" style="justify-content: center; text-align: center;">
-                  <p>From:</p>
+                  <h4>From:</h4>
                   <p id = "country_from"></p>
                   <img :src="src_from" alt="" style = "width: 60%; padding-bottom:5%">
+                    <h1>{{from_value}} <small class="text-black">{{currency_names[country_from]}}</small></h1>
                   <!-- <h1>{{country_from}}</h1>  -->
                 <div class="form-group text-center">
-                              <select class="form-select" id="country_from_selected" v-model="country_from" v-on:change="process_src">
+                              <select class="form-select mb-3" id="country_from_selected" v-model="country_from" v-on:change="process_src">
                                 <option :value="country" v-for="country in countries">{{country}} - {{currency_names[country]}}</option>
                               </select>
-                              <h1 class="text-darken-md">{{from_value}} {{currency_names[country_from]}}</h1>
+                          
                               <input min="0" step=".01" @change="process_total('from')" v-model="from_value" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 </div>
                 <div class="col-sm-6" style="justify-content: center; text-align: center;">
-                  <p>To:</p>
+                  <h4>To:</h4>
                   <p id = "country_to"></p>
                   <img :src="src_to" alt="" style = "width: 60%; padding-bottom:5%">
+                    <h1>{{to_value}} <small class="text-black">{{currency_names[country_to]}}</small></h1>
                   <!-- <h1>https://laendercode.net/img/flag-icon-css/flags/4x3/{{img_list[country_to]}}.svg</h1> -->
                   <!-- <h1>{{currency_names[country_to]}}</h1>  -->
                   <div class="form-group text-center">
-                                <select class="form-select" id="country_to_selected" v-model="country_to" v-on:change="process_src">
+                                <select class="form-select mb-3" id="country_to_selected" v-model="country_to" v-on:change="process_src">
                                   <option :value="country" v-for="country in countries">{{country}} - {{currency_names[country]}}</option>
                                 </select>
-                                <h1 class="text-maroon">{{to_value}} {{currency_names[country_to]}}</h1>
+                                
                                 <input min="0" step=".01" @change="process_total('to')" v-model="to_value" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
                               </div>
 
