@@ -17,15 +17,30 @@ Insert files into web root and launch http://localhost/tourist_app/index.html in
 
 # APIs 
 
-1. Covid-api
-2. 
-3. Community (Forum) API:
-- https://login-backend1.herokuapp.com/api/users/latest_posts
-- https://login-backend1.herokuapp.com/api/forum/postquestion
-- https://login-backend1.herokuapp.com/api/forum/getcomments4quest
-- https://login-backend1.herokuapp.com/api/forum/likecomment
-4. Community (Post) API:
-- https://login-backend1.herokuapp.com/api/users/post_review
+1. Community (Forum) API:
+https://expatacular.herokuapp.com/api/users/latest_post
+https://expatacular.herokuapp.com/api/forum/postquestion
+https://expatacular.herokuapp.com/api/forum/getcomments4quest
+https://expatacular.herokuapp.com/api/forum/likecomment
+
+2. Community (Post) API:
+https://expatacular.herokuapp.com/api/users/post_review
+
+3. Currency API:
+http://api.exchangeratesapi.io/v1/latest
+
+4. Translator API:
+https://expatacular.herokuapp.com/api/users/translateText
+https://expatacular.herokuapp.com/api/users/detectLanguage
+
+5. Weather API: 
+https://api.data.gov.sg/v1/environment/air-temperature
+https://api.data.gov.sg/v1/environment/rainfall
+https://api.data.gov.sg/v1/environment/relative-humidity
+https://api.data.gov.sg/v1/environment/wind-speed
+
+6. Covid API:
+https://covid-api.com/api/reports/total?iso=SGP
 
 # External tools used
 - MongoDB 
