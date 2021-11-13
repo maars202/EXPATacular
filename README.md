@@ -27,7 +27,8 @@ Insert files into web root and launch http://localhost/tourist_app/index.html in
 - https://expatacular.herokuapp.com/api/users/post_review
 
 3. Currency API:
-- http://api.exchangeratesapi.io/v1/latest
+- http://api.exchangeratesapi.io/v1/latest 
+*called via https://expatacular.herokuapp.com/api/exchange/
 
 4. Translator API:
 - https://expatacular.herokuapp.com/api/users/translateText
