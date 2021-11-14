@@ -207,8 +207,8 @@ langs = {"Afrikaans":"af","Albanian":"sq","Amharic":"am","Arabic":"ar","Armenian
       src_lang_code = await axios(config)
       .then(function (response) {
         lang_src = JSON.stringify(response.data[0].languages[0].languageCode)
-        console.log("LANGUAGE ISSSS: ", JSON.stringify(response.data[0].languages[0].languageCode));
-        console.log(lang_src.toLowerCase())
+//         console.log("LANGUAGE ISSSS: ", JSON.stringify(response.data[0].languages[0].languageCode));
+//         console.log(lang_src.toLowerCase())
         // src_lang_code = response.data[0].languages[0].languageCode
         // console.log("hello2")
         // document.getElementById("src_lang").value = response.data[0].languages[0].languageCode
@@ -230,7 +230,7 @@ langs = {"Afrikaans":"af","Albanian":"sq","Amharic":"am","Arabic":"ar","Armenian
     target_lang = document.getElementById("target_lang").value
     text = document.getElementById("text_").value
     result_tag = document.getElementById("translated")
-    console.log(src_lang, target_lang, text)
+//     console.log(src_lang, target_lang, text)
 
     var data = JSON.stringify({
       "text": text,
@@ -249,7 +249,7 @@ langs = {"Afrikaans":"af","Albanian":"sq","Amharic":"am","Arabic":"ar","Armenian
 
     axios(config)
     .then(function (response) {
-      console.log(JSON.stringify(response.data[0]));
+//       console.log(JSON.stringify(response.data[0]));
       result_tag.innerHTML = response.data[0].translations[0].translatedText
     })
     .catch(function (error) {
