@@ -1,0 +1,60 @@
+/* Define standard variables and values for website */
+.flag_img {
+  width: 60%;
+}
+
+.inner_card {
+  height: 90%;
+}
+
+.nav_row {
+  background-color: #F2F2F2;
+}
+
+.translator_cover {
+  background-image: url(https://www.telegraph.co.uk/content/dam/travel/Spark/singapore-tourism/masjid-sultan-mosque-xlarge.jpg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  width: 100%;
+}
+
+.main_div {
+  align-items: center;
+}
+
+.inner_card {
+  height: 90%;
+}
+
+.button_row {
+  padding: 100px;
+}
+
+.translation_row {
+  margin-top: 100px;
+}
+
+.jumbo_div {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.currency_div {
+  text-align: center;
+}
+
+.card_col {
+  justify-content: center;
+  text-align: center;
+}
+
+.currency_button_col {
+  text-align: center;
+}
+
+/*# sourceMappingURL=currency.css.map */
