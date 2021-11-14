@@ -250,15 +250,21 @@
             && this.country_to != NaN && this.country_to != 0){
               let from_rate =  this.rates[this.country_from]
               let to_rate =   this.rates[this.country_to]
-              if (from_rate == null || to_rate == null){
-                
-                if (to_rate == null){
+              
+              if (to_rate == null){
                 this.error_msg_to_currency = "Note: Please select a currency to convert to:"
+              }else{
+                this.error_msg_to_currency = ""
               }
-              if(from_rate == null){
+
+              if (from_rate == null){
                 this.error_msg_from_currency = "Note: Please select a currency to convert from:"
+              }else{
+                this.error_msg_from_currency = ""
               }
-              }else{  
+
+
+              if (from_rate != null && to_rate != null){  
                 // console.log("correct!")
                 this.to_value =  (this.from_value/from_rate*to_rate).toFixed(4);
                 this.error_msg_from_currency = ""
@@ -266,6 +272,7 @@
               }
             }
               // console.log("completed")
+            
             },
             process_val_to: function() {
                 
