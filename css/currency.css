@@ -1,4 +1,9 @@
 /* Define standard variables and values for website */
+.nav-link{
+    color: #757575;
+    margin-right: 40px;
+}
+
 .flag_img {
   width: 60%;
 }
