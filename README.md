@@ -13,7 +13,7 @@ Online:
 https://maars202.github.io/EXPATacular/index.html
 
 Local:
-Insert files into web root and launch http://localhost/tourist_app/index.html in browser
+Insert "tourist_app" folder into web root and launch http://localhost/tourist_app/index.html in browser
 
 # APIs 
 
